@@ -12,13 +12,14 @@ import Tag from './models/tag';
 import { ProjectCardComponent } from './project-card/project-card.component';
 // import header
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  imports: [RouterOutlet, CommonModule, HttpClientModule, ProjectCardComponent, HeaderComponent]
+  imports: [RouterOutlet, CommonModule, HttpClientModule, ProjectCardComponent, HeaderComponent,FooterComponent]
 })
 
 export class AppComponent {
@@ -73,9 +74,13 @@ export class AppComponent {
   categories: Category[] = [];
   filteredCategory!: number | null;
   filteredTags!: string[];
+  date!:Date;
+  author!:String;
   // inject HttpClient to make HTTP requests
   constructor(private http: HttpClient) {
     this.filteredTags=[];
+    this.date = new Date();
+    this.author = "Aditya Kumar"
   }
 
   ngOnInit() {
