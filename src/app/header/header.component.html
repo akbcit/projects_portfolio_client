@@ -1,0 +1,14 @@
+<!-- The click event calls sendDataToParent with the category's ID as argument -->
+<img id="logo" src="/assets/logo.svg" />
+<nav id="cat-nav">
+  <ul>
+    <li
+      *ngFor="let category of categories"
+      class="cat-selection"
+      (click)="sendDataToParent(category.id)"
+      [ngClass]="{'selected-cat': category.id===selectedCategoryId}"
+    >
+      {{ category.name }}
+    </li>
+  </ul>
+</nav>

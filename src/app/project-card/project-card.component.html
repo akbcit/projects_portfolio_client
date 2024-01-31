@@ -1,0 +1,8 @@
+<div class="project-card" id="{{project.slug}}-card" (click)="navigateToProject(project.url)">
+    <h1>{{project.title}}</h1>
+    <div class="image-container" [ngStyle]="{'background-image': 'url(' + project.thumb + ')'}"></div>
+    <h3>{{project.excerpt}}</h3>
+    <h4>Category: {{categoryName}}</h4>
+    <app-tag-chip *ngFor="let tag of project.tags" [tag]="tag"></app-tag-chip>
+</div>
+
